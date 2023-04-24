@@ -69,7 +69,7 @@ buttonOne.onclick = () => {
 }
 
 function deleteItemFromCloset(itemId){
-    fetch(`http://localhost:8080/closet/${itemId}`, {
+    fetch(`https://s23-deploy-gyoungUtah-production.up.railway.app/closet/${itemId}`, {
         credentials: 'include',
         method: 'DELETE'
         
@@ -85,7 +85,7 @@ function deleteItemFromCloset(itemId){
 
 
 let loadClothesFromServer =  () => {
-    fetch('http://localhost:8080/closet', {credentials: 'include'}).then(function(res){
+    fetch('https://s23-deploy-gyoungUtah-production.up.railway.app/closet', {credentials: 'include'}).then(function(res){
         res.json().then(function(data){
             if(res.status == 200){
                 console.log(data)
@@ -169,7 +169,7 @@ function addItemToCloset(itemType, description, size, comfort, rating){
         let data = `itemType=${encodeURIComponent(itemType)}&description=${encodeURIComponent(description)}&size=${(size)}&comfort=${(comfort)}&rating=${(rating)}`
         console.log(data)
 
-        fetch("http://localhost:8080/closet", {
+        fetch("https://s23-deploy-gyoungUtah-production.up.railway.app/closet", {
             credentials: 'include',
             method: "POST",
             body: data,
@@ -201,7 +201,7 @@ function confirmChanges(){
         let data = `itemType=${encodeURIComponent(itemTypeValueEdit)}&description=${encodeURIComponent(itemDescriptionValueEdit)}&size=${(itemSizeValueEdit)}&comfort=${(itemComfortValueEdit)}&rating=${(itemRatingValueEdit)}`
         console.log(data)
 
-        fetch(`http://localhost:8080/closet/${globalID}`, {
+        fetch(`https://s23-deploy-gyoungUtah-production.up.railway.app/closet/${globalID}`, {
             credentials: 'include',
             method: "PUT",
             body: data,
@@ -249,7 +249,7 @@ loginButton.addEventListener('click', () => {
     // Verify login data is correct or incorrect
     let data = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
 
-    fetch(`http://localhost:8080/sessions`, {
+    fetch(`https://s23-deploy-gyoungUtah-production.up.railway.app/sessions`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -300,7 +300,7 @@ signUpButton.addEventListener('click', () => {
     // add code to send the register credentials to the server
     let data = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
 
-    fetch(`http://localhost:8080/users`, {
+    fetch(`https://s23-deploy-gyoungUtah-production.up.railway.app/users`, {
         method: 'POST',
         credentials: 'include',
         headers: {
