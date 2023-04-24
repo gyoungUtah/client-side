@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="emailAndPassword" required>
+            </div>
+            <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="emailAndPassword" required>
+            </div>
+            <button id="logInBtn">Log in</button>
+            <button id="signUpBtn">Sign Up</button>
+        </div>
+          
+        <div class="wrapper">
+            <h1>Welcome to your closet</h1>
+            <div class="inputs">
+                <select id="clothingType" onchange="changeDropdown()">
+                    <option value="" disabled selected>Clothing Type</option>
+                    <option value="Shirt">Shirt</option>
+                    <option value="Pants">Pants</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Hat">Hat</option>
+                    <option value="Socks">Socks</option>
+                </select>
+
+                <input type="text" id="description" onchange="setInformation()" placeholder="Describe item">
+
+                <select id="itemSize" onchange="changeDropdown()">
+                    <option value="" disabled selected>Clothing Size</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="Extra-Large">Extra-Large</option>
+                </select>
+            </div>
+            <div class="inputs">
+                <select id="itemComfort" onchange="changeDropdown()">
+                    <option value="" disabled selected>How Comfortable?</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <select id="itemRating" onchange="changeDropdown()">
+                    <option value="" disabled selected>Overall Rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button id="buttonOne">Add to closet</button>
+            </div>
+            <div class="loader">
+                <ul class="closetHolder">
+                </ul>
+            </div>
+        </div>
+        <div id="editPopup">
+            <div id="editWrapper">
+                <div class="inputs">
+
+                    <div class="giveItFlexColumn">
+                        <label id="clothingTypeEditLabel" for="clothingTypeEdit"></label>
+                        <select id="clothingTypeEdit" onchange="changeDropdownEdit()">
+                            <option value="" disabled selected>Clothing Type</option>
+                            <option value="Shirt">Shirt</option>
+                            <option value="Pants">Pants</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Hat">Hat</option>
+                            <option value="Socks">Socks</option>
+                        </select>
+                    </div>
+                    
+                    <div class="giveItFlexColumn">
+                        <label id="descriptionEditLabel" for="descriptionEdit"></label>
+                        <input type="text" id="descriptionEdit" onchange="setInformationEdit()" placeholder="Describe item">
+                    </div>
+
+                    <div class="giveItFlexColumn">
+                        <label id="itemSizeEditLabel" for="itemSizeEdit"></label>
+                        <select id="itemSizeEdit" onchange="changeDropdownEdit()">
+                            <option value="" disabled selected>Clothing Size</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                            <option value="Extra-Large">Extra-Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <div class="giveItFlexColumn">
+                        <label id="itemComfortEditLabel" for="itemComfortEdit"></label>
+                        <select id="itemComfortEdit" onchange="changeDropdownEdit()">
+                            <option value="" disabled selected>How Comfortable?</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+
+                    <div class="giveItFlexColumn">
+                        <label id="itemRatingEditLabel" for="itemRatingEdit"></label>
+                        <select id="itemRatingEdit" onchange="changeDropdownEdit()">
+                            <option value="" disabled selected>Overall Rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputs">
+
+                    
+                    <div class="giveItFlex">
+                        <div id="cancelButton" class="button" onclick="closeEditPopup()">Cancel</div>
+                        <div id="confirmButton" class="button" onclick="confirmChanges()">Confirm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js" async defer></script>
+    </body>
+</html>
