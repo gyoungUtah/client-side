@@ -99,7 +99,7 @@ let loadClothesFromServer =  () => {
                     var newItem = document.createElement("li")
 
                     var itemType = document.createElement('div')
-                    itemType.innerHTML = `Type - ${item.itemType}`
+                    itemType.innerHTML = `Type - ${item.itemtype}`
                     itemType.classList.add("itemType")
                     newItem.appendChild(itemType)
 
